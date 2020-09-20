@@ -1,10 +1,18 @@
-package domain;
+package br.com.livro.carros.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Carro {
+ @Id
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Long id;
  private String tipo;
  private String nome;
- private String desc;
+ private String descricao;
  private String urlFoto;
  private String urlVideo;
  private String latitude;
@@ -34,12 +42,12 @@ public class Carro {
   this.nome = nome;
  }
 
- public String getDesc() {
-  return desc;
+ public String getDescricao() {
+  return descricao;
  }
 
- public void setDesc(String desc) {
-  this.desc = desc;
+ public void setDescricao(String descricao) {
+  this.descricao = descricao;
  }
 
  public String getUrlFoto() {
@@ -80,7 +88,7 @@ public class Carro {
           "id=" + id +
           ", tipo='" + tipo + '\'' +
           ", nome='" + nome + '\'' +
-          ", desc='" + desc + '\'' +
+          ", desc='" + descricao + '\'' +
           ", urlFoto='" + urlFoto + '\'' +
           ", urlVideo='" + urlVideo + '\'' +
           ", latitude='" + latitude + '\'' +
