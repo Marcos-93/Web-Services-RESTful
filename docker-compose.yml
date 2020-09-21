@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mysql:
+    build:
+      dockerfile: ./docker/mysql.dockerfile
+      context: .
+    image: marcos93/carros_mysql
+    volumes:
+      - /home/marcos/docker/mysql_volume:/var/lib/mysql
+    container_name: banco_carros
+    ports:
+      - "3306:3306"

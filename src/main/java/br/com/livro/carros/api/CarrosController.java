@@ -22,8 +22,4 @@ public class CarrosController {
     public List<Carro> getCarros(){
         return carroService.getCarros();
     }
-    @GetMapping("/teste")
-    public String getTest(){
-        return "Deu certo";
-    }
 }
