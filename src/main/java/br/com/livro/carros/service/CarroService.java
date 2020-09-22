@@ -36,6 +36,12 @@ public class CarroService {
         }
         return null;
     }
+    public List<Carro> getByTipo(String tipo){
+        return carroRepository.findByTipo(tipo);
+    }
+    public Carro getByName(String nome){
+        return carroRepository.findByNome(nome);
+    }
     public boolean delete(Long id){
         Optional optional = carroRepository.findById(id);
         if(optional.isPresent()){

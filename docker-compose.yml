@@ -1,12 +1,14 @@
-version: '3'
+version: "3.7"
 services:
   mysql:
-    build:
-      dockerfile: ./docker/mysql.dockerfile
-      context: .
-    image: marcos93/carros_mysql
-    volumes:
-      - /home/marcos/docker/mysql_volume:/var/lib/mysql
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: senha
+      MYSQL_DATABASE: livro
+      MYSQL_USER: marcos
+      MYSQL_PASSWORD: senha
     container_name: banco_carros
     ports:
-      - "3306:3306"
+      - 3306:3306
