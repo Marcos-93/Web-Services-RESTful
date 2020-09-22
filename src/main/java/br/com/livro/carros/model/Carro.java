@@ -1,4 +1,4 @@
-package br.com.livro.carros.domain;
+package br.com.livro.carros.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +17,14 @@ public class Carro {
  private String urlVideo;
  private String latitude;
  private String longitude;
+
+ public Carro() {
+ }
+ public Carro(String tipo, String nome, String descricao) {
+  this.tipo = tipo;
+  this.nome = nome;
+  this.descricao = descricao;
+ }
 
  public Long getId() {
   return id;

@@ -1,6 +1,6 @@
 package br.com.livro.carros.repository;
 
-import br.com.livro.carros.domain.Carro;
+import br.com.livro.carros.model.Carro;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
