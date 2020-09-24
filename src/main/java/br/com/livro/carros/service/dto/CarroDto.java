@@ -18,6 +18,10 @@ public class CarroDto {
         this.descricao = carro.getDescricao();
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }
