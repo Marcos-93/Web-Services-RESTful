@@ -1,6 +1,5 @@
 package br.com.livro.carros.api;
 
-import br.com.livro.carros.model.Carro;
 import br.com.livro.carros.service.dto.CarroDto;
 import br.com.livro.carros.service.form.AtualizaCarroForm;
 import br.com.livro.carros.service.form.CarrosForm;
@@ -40,11 +39,11 @@ public class CarrosController {
         return carroService.getCarro(id);
     }
     @GetMapping("/tipo/{tipo}")
-    public List<Carro> buscarPorTipo(@PathVariable("tipo") String tipo){
+    public List<CarroDto> buscarPorTipo(@PathVariable("tipo") String tipo){
         return carroService.getByTipo(tipo);
     }
     @GetMapping("/nome/{nome}")
-    public Carro buscarPorNome(@PathVariable String nome){
+    public ResponseEntity<CarroDto> buscarPorNome(@PathVariable String nome){
         return carroService.getByName(nome);
     }
 }

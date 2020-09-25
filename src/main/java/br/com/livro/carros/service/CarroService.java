@@ -36,11 +36,17 @@ public class CarroService {
         }
         return ResponseEntity.notFound().build();
     }
-    public List<Carro> getByTipo(String tipo){
-        return carroRepository.findByTipo(tipo);
+    public List<CarroDto> getByTipo(String tipo){
+        List<Carro> carros = carroRepository.findByTipo(tipo);
+        return CarroDto.converter(carros);
     }
-    public Carro getByName(String nome){
-        return carroRepository.findByNome(nome);
+    public ResponseEntity<CarroDto> getByName(String nome){
+        Optional<Carro> optional = carroRepository.findByNome(nome);
+        if (optional.isPresent()){
+            return ResponseEntity.ok(new CarroDto(optional.get()));
+        }
+        return ResponseEntity.notFound().build();
+
     }
     public boolean delete(Long id){
         Optional optional = carroRepository.findById(id);
@@ -50,16 +56,6 @@ public class CarroService {
         }
         return false;
     }
-    public boolean save(Carro carro){
-        try{
-          carroRepository.save(carro);
-          return true;
-        }catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-    }
-
     public ResponseEntity<CarroDto> cadastrar(CarrosForm form, UriComponentsBuilder uriBuilder) {
         Carro carro = form.converter();
         carroRepository.save(carro);

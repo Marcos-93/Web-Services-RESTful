@@ -1,12 +1,11 @@
 version: '3'
 services:
   db:
-    image: mysql:5.6
+    build:
+      context: ./docker
+      dockerfile: mysql.dockerfile
     ports:
-      - "3308:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=senha
-      - MYSQL_DATABASE=livro
-      - MYSQL_USER=marcos
-      - MYSQL_PASSWORD=senha
+    - "3306:3306"
     container_name: meu_db
+    volumes:
+    - /home/marcos/docker/mysql_volume:/var/lib/mysql
