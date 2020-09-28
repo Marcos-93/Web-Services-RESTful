@@ -8,4 +8,4 @@ services:
     - "3306:3306"
     container_name: meu_db
     volumes:
-    - /home/marcos/docker/mysql_volume:/var/lib/mysql
+    - ./docker/volumes/mysql_volume:/var/lib/mysql

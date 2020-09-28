@@ -15,7 +15,7 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
+docker/volumes/*
 ### IntelliJ IDEA ###
 .idea
 *.iws
